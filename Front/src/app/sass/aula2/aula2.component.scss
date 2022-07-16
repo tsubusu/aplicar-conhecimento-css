@@ -1,0 +1,302 @@
+@import '../../../styles.scss'; //importar css
+
+nav { // codigo encadeado
+    text-align: center;
+    ul {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none; // retirar o ponto da li
+        li {
+            //display: inline-block;
+            //padding: 1rem;
+            a { 
+                text-transform: uppercase;
+                text-decoration: none; // retirar sublinhado
+                font-weight: bold;
+                color: $cor-primaria;
+                &:hover { //Seletor especial & para referenciar com seletor externo
+                    border-bottom: 2px solid $cor-secundaria;
+                }
+            }
+        }
+    }
+}
+
+/*
+    Aqui vemos o uso correto do Nesting junto com o Parent Selector,
+    as classes .component__logo e .component__txt pertencem 
+    ao bloco component, e ao usarmos o & evitamos a repetição
+    da palavra “component” e com o nesting é possível fazer 
+    a referência que logo e txt estão dentro do bloco component.
+*/
+// .component {
+//     width: 100%;
+//     padding: 20px 0;
+
+//     &__logo {
+//             max-width: 100px;
+//     }
+
+//     &__txt {
+//             margin: auto;
+//             font-size: 14px;
+//             font-family: Arial;
+//             text-align: center;
+//     }
+// }
+
+.banner {
+    background: url(../../../assets/aula2-sass/banner.jpeg) 27% center no-repeat;
+    min-width: 350px;
+    height: 315px;
+    background-size: cover; // ocupar todo espaço possivel
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    .inner-banner {
+        padding: 3rem;
+        background-color: $cor-terciaria;
+        opacity: 0.9;
+        border-radius: 45px;
+        h1 {
+            font-size: $tamanho-do-texto;
+            $cor-primaria: red; // variaveis funcionam em nivel de escopo
+            color: $cor-primaria;
+            margin: 0;
+        }
+        h2 {
+            font-size: $tamanho-do-texto / 2; // funcao matematica
+            color: $cor-primaria;
+            margin: 0;
+        }
+    }
+}
+
+/* Palavras reservadas
+@use	carrega mixins, functions e variáveis de outras folhas de estilos Sass e combina o CSS de diversas folhas de estilo juntos.
+@forward	carrega uma folha de estilo Sass e torna os mixins, functions e variáveis disponíveis quando a folha de estilo é carregada pela regra do @use.
+@import	estende as regras de CSS para carregar styles, mixins, functions e variáveis de outras folhas de estilo.
+@mixins e @include	facilitam a reutilização de trechos de código.
+@function	define funções customizadas que podem ser utilizadas em expressões.
+@extend	permite que os seletores herdem estilos uns dos outros.
+@at-root	coloca estilos dentro dele na raiz do documento CSS.
+@error	faz com que a compilação falhe com uma mensagem de erro.
+@warn	imprime um aviso sem parar totalmente a compilação.
+@debug	imprime uma mensagem para fins de debugging.
+*/
+
+#servicos {
+   margin: 80px;
+   h4 {
+        margin: 20px;
+        margin-bottom: 80px;
+        font-size: $tamanho-do-texto / 1.2;
+        color: $cor-secundaria;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-align: center;
+   }
+   h3 {
+        text-align: center;
+        font-size: $tamanho-do-texto / 2.5;
+        margin: 0;
+        font-weight: 300;
+   }
+
+   .cards {
+       display: flex;
+       justify-content: space-evenly; // espaço igual para todos
+       .card {
+           width: 360px;
+           text-align: center;
+           .img-container {
+               padding-bottom: 2px;
+               border-bottom: 6px solid $cor-secundaria;
+               img {
+                   max-width: 100%;
+               }
+           }
+           h5 {
+               font-size: $tamanho-do-texto / 1.5;
+               font-weight: 300;
+               color: $cor-primaria;
+           }
+           p {
+               font-size: $tamanho-do-texto / 3;
+               font-weight: 300;
+               color: $cor-primaria;
+               line-height: 1.25rem; // alterar o tamanho da linha
+           }
+       }
+   }
+}
+
+#cupom {
+    background-color: $cor-terciaria;
+    padding: 4rem;
+    text-align: center;
+    .texto {
+        color: $cor-primaria;
+        h2 {
+            margin: 2rem;
+            font-size: $tamanho-do-texto / 1.7;
+        }
+    }
+    .inscricao {
+        .input {
+            margin: auto;
+            width: 575px;
+            border-radius: 20px;
+            border: 4px solid white;
+            background-color: white;
+            input {
+                border-radius: 20px;
+                height: 40px;
+                border: none;
+                width: 540px;
+                outline: none;
+                text-align: center;
+                font-size: 26px;
+            }
+            &:hover, &:focus-within { //aplicar efeito para os dois casos
+                box-shadow: 1px 1px 8px 1px $cor-primaria;
+                outline: none;
+            }
+        }
+        button {
+            text-transform: uppercase;
+            margin-top: .75rem;
+            outline: none;
+            height: 40px;
+            text-align: center;
+            width: 130px;
+            background-color: $cor-primaria;
+            color: $cor-secundaria;
+            letter-spacing: 1px;// espacamento entre as letras
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer; //Transformar o cursor
+            border: 2px $cor-primaria;
+            border-radius: 40px;
+            &:hover {
+                color: $cor-primaria;
+                background-color: $cor-secundaria;
+                border-color: $cor-terciaria;
+            }
+        }
+    }
+}
+
+@mixin bg-cores($cores...) { // pode passar quantos parametros forem necessarios = args
+    background: linear-gradient(to left, $cores);
+    
+}
+
+footer {
+    text-align: center;
+    font-size: $tamanho-do-texto / 2;
+    border-top: 2px solid $cor-primaria;
+    padding: 1.2rem;
+    @include bg-cores($cor-primaria, $cor-secundaria, $cor-terciaria);
+    i {
+        color: red;
+    }
+}
+
+/*
+@if
+O padrão de escrita do if é @if <expression> { ... }, que controla se seu bloco é avaliado ou não (incluindo a emissão de qualquer estilo como CSS). A expressão geralmente retorna true ou false —se a expressão retornar true, o bloco será executado e, se a expressão retornar false, não será executado.
+
+@else
+Já no caso do else, escrita é @else { ... }. O bloco desta regra é avaliado se a @if retornar falso.
+
+@mixin bg-cores($lado, $cores...)
+    @if $lado == left
+        background: linear-gradient(to left, $cores)
+    @else 
+        background: linear-gradient(to right, $cores)
+*/
+
+#curiosidades {
+    padding: 1rem;
+    text-align: center;
+    margin: 5px;
+    h3 {
+        color: $cor-primaria;
+        font-size: $tamanho-do-texto/2.5;
+    }
+    h4 {
+        color: $cor-secundaria;
+        font-size: $tamanho-do-texto/3;
+    }
+    p {
+        margin-top: 5px;
+        color: $cor-primaria;
+    }
+}
+
+@media(max-width: 768px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav { // codigo encadeado
+        text-align: center;
+        ul {
+            flex-direction: column;
+            padding: 0;
+        }
+    }
+
+    .banner {
+        min-width: initial;
+        .inner-banner {
+            padding: 1rem;
+        }
+    }
+
+    #servicos {
+        margin-top: 50px !important;
+        margin: inherit;
+        h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-evenly; // espaço igual para todos
+            flex-direction: column;
+            width: 100%;
+            .card {
+                width: inherit;
+                text-align: center;
+            }
+        }
+     }
+
+    #cupom {
+        .texto {
+            h2 {
+                margin: initial;
+                font-size: initial;
+            }
+        }
+        .inscricao {
+            .input {
+                width: 100%;
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #curiosidades {
+        img {
+            width: 100%;
+        }
+    }
+}

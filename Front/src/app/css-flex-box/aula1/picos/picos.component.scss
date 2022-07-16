@@ -1,0 +1,48 @@
+.principal {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: repeat(3, auto);
+    padding: 16px 60px;
+    gap: 16px;
+    .titulo-pagina {
+        grid-column: 1 / span 4;
+    }
+    .cartao-mapa {
+        grid-column: 1 / span 3;
+        box-sizing: border-box;
+    }
+    .cartao {
+        grid-column: 4;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px; //coloca 8px para as colunas
+        row-gap: 8px; // coloca 8px para as linhas
+        align-self: baseline;
+        &__lista {
+            grid-column: span 2;
+            display: grid;
+            gap: 8px;
+            .cartao__item {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 8px;
+                .cartao__item--thumbnail {
+                    grid-row: span 2;
+                }
+            }
+        }
+    }
+
+    .mais-visitados {
+        grid-column: span 4;
+        display: grid;
+        grid-template-areas: 'cartao-visitados cartao-visitados cartao-visitados cartao-visitados';
+        column-gap: 32px;
+        .cartao-visitados {
+            width: 100%;
+            &--imagem {
+                width: 100%;
+            }
+        }
+    }
+}

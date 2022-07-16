@@ -1,0 +1,103 @@
+<div class="background-color">
+    <header>
+        <div class="caixa">
+            <div class="logo"></div>
+    
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Produtos</li>
+                    <li>Contato</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+            <form>
+                <!--
+                    A conectar um input com o seu label
+                    Colocamos um id para o input e associamos esse id ao atributo for do label
+    
+                    <fieldset> é usada para criar uma divisão no nosso formulário, com um ou mais <input>.
+    
+                    <legend> que usamos para um título de um grupo de campos em qualquer formulário.
+                        
+                    O alt não é uma tag, é uma propriedade que usamos para prover uma alternativa para imagens.
+                -->
+                <label for="nomesobrenome">Nome e sobrenome</label>
+                <input class="input-padrao" type="text" id="nomesobrenome" required>
+        
+                <label for="email">Email</label>
+                <input class="input-padrao" type="email" id="email" required>
+        
+                <label for="telefone">Telefone</label>
+                <input class="input-padrao" type="tel" id="telefone" required>
+    
+                <label for="mensagem">Mensagem</label>
+                <textarea cols="70" rows="10" id="mensagem" class="input-padrao" required></textarea>
+    
+                <fieldset>
+                    <legend>Como prefere o nosso contato?</legend>
+                    <label for="radio-email">
+                        <input type="radio" name="contato" value="email" id="radio-email">
+                        Email
+                    </label>
+                
+                    <label for="radio-telefone">
+                        <input type="radio" name="contato" value="telefone" id="radio-telefone"> 
+                        Telefone
+                    </label>
+                
+                    <label for="radio-whatsapp">
+                        <input type="radio" name="contato" value="whatsapp" id="radio-whatsapp">
+                        WhatsApp
+                    </label>
+                </fieldset>
+        
+                <div>
+                    <p>Qual horário prefere ser atendido?</p>
+                    <select>
+                        <option>Manhã</option>
+                        <option>Tarde</option>
+                        <option>Noite</option>
+                    </select>
+                </div>
+        
+                <label id="checkbox">
+                    <input type="checkbox">
+                    Gostaria de receber nossas novidades por email?
+                </label>
+        
+                <input type="submit" value="Enviar formulário" class="enviar">
+            </form>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda</td>
+                        <td>8h ~ 20h</td>
+                    </tr>
+                    <tr>
+                        <td>Quarta</td>
+                        <td>8h ~ 20h</td>
+                    </tr>
+                    <tr>
+                        <td>Sexta</td>
+                        <td>8h ~ 20h</td>
+                    </tr>
+                </tbody>
+            </table>
+    </main>
+    
+    <footer>
+        <div class="logo-branco"></div>
+        <p class="copyright">&copy; Copyright Barbearia Alura - 2019</p>
+    </footer>
+</div>

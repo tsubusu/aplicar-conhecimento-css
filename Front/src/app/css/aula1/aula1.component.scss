@@ -1,0 +1,116 @@
+.logo {
+    display: inline-block;
+    height: 235px;
+    width: 150px;
+    background-image: url('../../../assets/css-aula1/logo.png');
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #bbbbbb;
+    padding: 20px 0; //adiciona 20px em baixo e em cima
+    .caixa {
+        position: relative; // torna a 'caixa' como um novo elemento com suas posições para definir os novos pontos absolutos dentro dela.
+        width: 940px;
+        margin: 0 auto; // deixa o topo e o bottom 0 e ajusta automaticamente no meio a direita e a esquerda
+    }
+    nav {
+        position: absolute; //deixa o nav absoluto em relacao a 'caixa'
+        top: 110px;
+        right: 0;
+    }
+    nav li {
+        display: inline;
+        text-transform: uppercase;
+        color: black;
+        font-weight: bold;
+        font-size: 22px;
+        margin: 0 0 0 15px;
+        &:hover {
+            color: #C78C19;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+main {
+    background-color: white;
+}
+
+.produtos {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.produtos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-sizing: border-box; //mantem os espaços do paddin mas respeitando os 30% de width assim n estourando o tamanho de 100% da pagina
+    &:hover {
+        border-color: #C78C19;
+    }
+    &:active {
+        border-color: #088C19;    
+    }
+    &:hover h2 {
+        font-size: 32px;
+    }
+    .cabelo-barba {
+        height: 230px;
+        width: auto;
+        background-image: url('../../../assets/css-aula1/cabelo+barba.jpg');
+    }
+    .cabelo {
+        height: 230px;
+        width: auto;
+        background-image: url('../../../assets/css-aula1/cabelo.jpg');
+    }
+    .barba {
+        height: 230px;
+        width: auto;
+        background-image: url('../../../assets/css-aula1/barba.jpg');
+    }
+}
+
+.produtos h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.produto-descricao {
+    font-size: 18px;
+}
+
+.produto-preco {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    background: url('../../../assets/css-aula1/bg.jpg');
+    padding: 40px 0;
+    div {
+        height: 230px;
+        width: 175px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background: url('../../../assets/css-aula1/logo-branco.png');
+    }
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 20px 0 0;
+}

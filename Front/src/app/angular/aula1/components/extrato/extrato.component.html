@@ -1,0 +1,29 @@
+<table class="tabela">
+    <thead class="tabela__cabecalho">
+        <th class="tabela__cabecalho__conteudo">data</th>
+        <th class="tabela__cabecalho__conteudo">valor</th>
+        <th class="tabela__cabecalho__conteudo">destino</th>
+    </thead>
+    <!-- 
+        No meu ngIf, assim como tenho if, também tenho o else. Sendo assim, vou colocar um ponto e vírgula após transferencias e o else com listaVazia. Se a condição *ngIf="!!transferencias" for atendida, 
+        vou renderizar a nossa tabela; do contrário, vou chamar a listaVazia
+    -->
+    <tbody *ngIf="transferencias.length > 0; else listaVazia">
+        <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
+            <td class="tabela__conteudo">{{transferencia?.data | date: "short"}}</td> <!--  | date: "short" é uma formatação de datas utilizando o pipe '|' + date: "short"  -->
+            <td class="tabela__conteudo">{{transferencia?.valor | currency }}</td> <!--  | currency é uma formatação para moedas utilizando o pipe '|' + currency  -->
+            <td class="tabela__conteudo">{{transferencia?.destino}}</td>
+            <!-- as  configurações de moeda e data estão localizadas no app-module -->
+        </tr>
+    </tbody>
+</table>
+
+<!-- 
+    ngTemplate vai funcionar como o conteúdo que vai substituir o <tbody> quando o critério do *ngIf não for atendido
+
+ -->
+<ng-template #listaVazia>
+    <p>nenhuma transferencia cadastrada</p>
+</ng-template>
+
+

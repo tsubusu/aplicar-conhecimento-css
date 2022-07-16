@@ -1,0 +1,18 @@
+.has-success {
+    border: 2px solid green;
+}
+
+.has-error {
+    border: 2px solid red;
+}
+
+.content {
+    display: flex;
+    .content-item {
+        display: flex;
+        flex-direction: column;
+        .help-block {
+            font-size: 9px;
+        }
+    }
+}

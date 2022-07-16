@@ -1,0 +1,24 @@
+
+.dash-board {
+    display: flex;
+    justify-content: center;
+    .dash-board-item {
+        border-radius: 15px;
+        margin: 15px;
+        padding: 5px;
+        width: 27%;
+        height: 550px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.weather {
+    flex-wrap: wrap;
+    width: 100%;
+    span {
+        height: 0px;
+    }
+}
+

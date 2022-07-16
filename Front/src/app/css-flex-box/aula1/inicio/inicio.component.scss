@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'icones';
+    src: url(../../../../assets/flex-box/icones.ttf) format("opentype");
+}
+
+$sombras: 0px 4px 4px rgba(0, 0, 0, 0.16);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'icones', 'Open Sans', sans-serif;
+}
+
+.principal {
+    padding: 24px 16px;
+    display: grid;
+    gap: 16px;
+}
+
+.titulo-pagina {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+.secao {
+    display: grid !important;
+    gap: 16px !important;
+    .titulo-secao {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+    }
+}
+
+.cartao {
+    display: grid;
+    // quantas colunas que nós queremos e qual o tamanho dessas colunas
+    //  unidade de medida, que é a fr ou frações | ao invez de usar 33.33% usar 1 fr
+    //grid-template-columns: 1fr 1fr 1fr; 
+    //grid-template-rows: 300px; //quantas linhas nós criamos e qual o tamanho de cada uma dessas linhas
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden; // qualquer item q ultrapassar irá vifcar invisivel
+    background-color: #2C343A;
+    .cartao__imagem {
+        width: 100%;
+    }
+    .cartao__imagem--mobile {
+        width: 100%;       
+    }
+    .cartao__imagem--desktop {
+        display: none;
+    }
+    .cartao__conteudo {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 8px; //coloca 8px para as colunas
+        row-gap: 8px; // coloca 8px para as linhas
+        .cartao__destaque {
+            grid-column: span 2; // mesclar 2 celulas
+        }
+        .cartao__titulo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            grid-column: span 2;
+        }
+        .cartao__perfil {
+            color: #95999C;
+            font-size: 0.9rem;
+            grid-column: span 2;
+        }
+        .carta__info {
+            display: flex;
+            align-items: center;
+            color: #95999C;
+        }
+        .cartao__info--tempo::before {
+            content: "\e90c";
+            margin-right: 8px;
+        }
+        .cartao__info--visualizacao::before {
+            content: "\e90f";
+            margin-right: 8px;
+        }
+        .cartao__botao {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0480DC;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            justify-self: flex-end;
+        }
+        .cartao__botao--play::before {
+            content: "\e90b";
+            font-size: 24px;
+        }
+        .cartao__botao--destaque {
+            width: 100%;
+            grid-column: span 2;
+            &:before {
+                margin-right: 8px;
+            }
+        }
+    }
+    &--recentes {
+        display: none;
+    }
+}
+
+.cartao--destaque {
+    margin-bottom: 16px;
+}
+
+
+
+@media screen and (min-width:1440px) {
+    body {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .cabecalho {
+        background-color: #1D232A;
+        display: grid;
+        column-gap: 32px;
+        grid-template-columns: 1fr auto;
+        padding: 16px 60px;
+        height: 80px;
+        box-sizing: border-box;
+        grid-column: 2; // comecar na segunda coluna
+        &__menu {
+            display: none;
+        }
+        &__logo {
+            display: none;
+        }
+        &__perfil {
+            display: grid;
+            grid-template-columns: repeat(3, auto); //repete 3 vezes o auto, seria a mesma coisa q usar auto auto auto
+            column-gap: 8px;
+            align-items: center;
+            justify-self: flex-end;
+            color: #95999C;
+            padding: 8px 32px;
+            border-right: 1px solid #95999C;
+            &:before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url(../../../../assets/flex-box/profile_2.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            &:after {
+                content: '\e90d';
+                color: white;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .menu-lateral {
+        position: static;
+        width: 200px;
+        grid-row: 1 / span 2; //comecar na primeria linha e vai dar um span de duas linhas 
+        grid-column: 1; //comecar na primeria coluna
+
+    }
+    
+    .principal {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-recentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-recentes destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"
+        ;
+        column-gap: 32px;
+        padding: 16px 60px;
+        grid-column: 2;
+        .titulo-pagina {
+            //grid-column: 1 / span 3;
+            grid-area: titulo-pagina;
+        }
+        .cartao--destaque {
+            margin-bottom: 0;
+            .cartao__imagem--mobile {
+                display: none;
+            }
+            .cartao__imagem--desktop {
+                display: block;
+                width: 100%;
+            }
+            .cartao__conteudo {
+                .cartao__botao--destaque {
+                    grid-column: auto;
+                    padding: 16px 8px;
+                }
+            }
+        }
+        .cartao--recentes {
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+            row-gap: 24px; // espacamento entre linhas
+            width: 256px;
+            padding: 16px;
+            box-sizing: border-box;
+            //grid-column: 3;
+            grid-area: 'recentes';
+            align-self: flex-start; // foi necessario o uso pq o align-self inicializa como stretch utilizando todo o espaço disponivel
+        }
+    }
+
+    .destaque-video {
+        grid-area: destaque-video;
+    }
+
+    .videos-recentes {
+        grid-area: videos-recentes;
+    }
+
+    .secao-videos {
+        grid-area: secao-videos;
+    }
+
+    .destaque-produtos {
+        grid-area: destaque-produtos;
+    }
+
+    .produtos-recentes {
+        grid-area: produtos-recentes;
+    }
+
+    .secao-produtos {
+        grid-area: secao-produtos;
+    }
+
+    .cartao {
+        &__link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #0480DC;
+            justify-self: flex-end;
+        }
+        &__lista {
+            display: grid;
+            row-gap: 16px;
+            grid-column: span 2; //juntar as duas celulas
+            .cartao__item {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 8px;
+                .cartao__item--thumbnail {
+                    width: 32px;
+                    grid-row: span 2;
+                }
+                .cartao__item-titulo {
+                    font-size: 0.9rem;
+                    line-height: 1.2rem; //ajustar tamanho da linha
+                    font-weight: 700;
+                }
+                .cartao__item-perfil {
+                    font-size: 0.8rem;
+                    color: #95999C;
+                }
+            }
+        }
+    }
+
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+        .titulo-secao {
+            grid-column: 4 / span 4;
+        }
+    }
+}

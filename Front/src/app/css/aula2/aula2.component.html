@@ -1,0 +1,132 @@
+<!-- 
+    https://www.figma.com/file/0gMF5BPgplPYqQA6Om1T1sk9/alura-bootstrap
+
+ -->
+
+ <!-- 
+    Atomic Design
+    <header>, <img>, <nav> e <ul> são todas átomos; 
+    a junção dos átomos <nav> 
+    e seus filhos (<ul> e <lu>) forma uma molécula;
+    e a junção dessa molécula com outros átomos e moléculas define o organismo "cabeçalho"
+ -->
+
+ <header class="cabecalho">
+    <img class="logo" alt="Fruto & Fruta" src="../../../assets/css-aula2/logo.jpg"/>
+    <nav class="menu">
+        <ul class="menu__lista">
+            <li class="menu__item"><a class="menu__link ativo" href=#>Início</a></li>
+            <li class="menu__item"><a class="menu__link" href=#>Receitas</a></li>
+            <li class="menu__item"><a class="menu__link" href=#>Quem somos</a></li>
+            <li class="menu__item"><a class="menu__link" href=#>Comunidade</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- 
+    BEM - Block Element Modifier - Bloco Elemento Modificador // padrão CSS mais famoso
+
+    bloco -> blocos se referem a pequenos contextos (ou "pedaços") Ex: classes cabecalho, logo, menu, banner e sobre
+    bloco__elemento ->  classe menu-lista, por exemplo, é filha de menu, e as classes filhas de blocos são chamadas de elementos,  usamos dois underlines (__) para nomeá-las
+    bloco--modificador -> Já os modificadores são separados usando um par de traços (--)
+    bloco__elemento--modificador -> Já os modificadores são separados usando um par de traços (--)
+-->
+
+<div class="body">
+
+    <section class="banner">
+        <div class="banner__imagem"></div>
+        <h2 class="banner__titulo">Reaproveite melhor os alimentos!</h2>
+    </section>
+    
+    <section class="sobre">
+        <h2 class="sobre__titulo">Receitas para economizar e ganhar saúde</h2>
+        <p class="sobre__descricao">Nossas receitas ajudam você a aproveitar melhor os alimentos, economizar, ganhar tempo e praticidade</p>
+    </section>
+    
+    <section class="receitas">
+        <div class="receita">
+            <img alt="Tigela de abacate" class="receita__imagem" src="../../../assets/css-aula2/tigela-de-abacate.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Tigela de abacate</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+        <div class="receita">
+            <img alt="Salada de kiwi" class="receita__imagem" src="../../../assets/css-aula2/salada-de-kiwi.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Salada de kiwi</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+        <div class="receita">
+            <img alt="Mix de vegetais" class="receita__imagem" src="../../../assets/css-aula2/mix-de-vegetais.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Mix de vegetais</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+        <div class="receita">
+            <img alt="Pimentões à Juliana" class="receita__imagem" src="../../../assets/css-aula2/pimentoes-a-juliana.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Pimentões à Juliana</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+        <div class="receita">
+            <img alt="Prato oriental" class="receita__imagem" src="../../../assets/css-aula2/prato-oriental.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Prato oriental</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+        <div class="receita">
+            <img alt="Beterrabas assadas" class="receita__imagem" src="../../../assets/css-aula2/beterrabas-assadas.jpg" />
+            <div class="receita__conteudo">
+                <h4 class="receita__titulo">Beterrabas assadas</h4>
+                <p class="receita__descricao">Receita refrescante e cheia de vitaminas para seu café da manhã.</p>
+                <button class="receita__botao">Ver receita</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        classes modificadoras (precedidas por um par de traços --) que se referem aos 
+        nomes das colaboradoras:
+        pessoa_imagem--roberta
+        pessoa_imagem--marcela
+        pessoa_imagem--andreia
+    -->
+
+    <section class="quem-somos">
+        <h3 class="quem-somos__titulo">Quem somos</h3>
+        <p class="quem-somos__descricao">Conheça a comunidade por trás da iniciativa</p>
+        <div class="pessoas">
+            <div class="pessoa">
+                <div class="pessoa__imagem pessoa__imagem--roberta"></div>
+                <span class="pessoa__nome">Roberta</span>
+                <span class="pessoa__funcao">Conteúdo</span>
+            </div>
+            <div class="pessoa">
+                <div class="pessoa__imagem pessoa__imagem--marcela"></div>
+                <span class="pessoa__nome">Marcela</span>
+                <span class="pessoa__funcao">Chef de cozinha</span>
+            </div>
+            <div class="pessoa">
+                <div class="pessoa__imagem pessoa__imagem--andreia"></div>
+                <span class="pessoa__nome">Andréia</span>
+                <span class="pessoa__funcao">Pequena Produtora</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        Contato: exemplo@email.com.br
+    </footer>
+</div>
+

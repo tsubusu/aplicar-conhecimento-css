@@ -1,0 +1,37 @@
+<!-- html:5 para criar a estrutura-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
+</head>
+
+<body class="body" #container>
+
+    <header class="cabecalho">
+        <!-- aria-label="Menu" utilizar para acessibilidade -->
+        <button (click)="onMenu()" class="cabecalho__menu" aria-label="Menu"><i></i></button>
+        <img class="cabecalho__logo" src="../../../assets/flex-box/logo.svg" alt="LogoTipo da H2C">
+        <p class="cabecalho__perfil">Bruno Lopez</p>
+        <button class="cabecalho__notificacao" aria-label="Notificação"><i></i></button>
+    </header>
+    <!-- nav.menu-lateral>img.menu-lateral__logo+a[href="#"].menu-lateral__link*6 --> 
+    <nav #menuLateral class="menu-lateral">
+        <img src="../../../assets/flex-box/logo.svg" alt="LogoTipo da H2C" class="menu-lateral__logo">
+        <a [routerLink]="'inicio'" class="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><i></i>Inicio</a>
+        <a [routerLink]="'inicio'" class="menu-lateral__link menu-lateral__link--videos"><i></i>Videos</a>
+        <a [routerLink]="'picos'" class="menu-lateral__link menu-lateral__link--picos"><i></i>Picos</a>
+        <a [routerLink]="'inicio'" class="menu-lateral__link menu-lateral__link--integrantes"><i></i>Integrantes</a>
+        <a [routerLink]="'inicio'" class="menu-lateral__link menu-lateral__link--camisas"><i></i>Camisas</a>
+        <a [routerLink]="'inicio'" class="menu-lateral__link menu-lateral__link--pinturas"><i></i>Pinturas</a>
+    </nav>
+    <router-outlet></router-outlet>
+</body>
+
+</html>

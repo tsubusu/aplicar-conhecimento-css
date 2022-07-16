@@ -1,0 +1,228 @@
+<!--
+    Acessibilidade
+    NVDA https://www.nvaccess.org/ --leitor de tela
+
+     https://pt.slideshare.net/MarinaDomingues7/acessibilidade-por-que-deixarmos-de-ser-amadores-para-um-pblico-que-espera-mais-de-ns
+
+    https://www.infoq.com/br/news/2018/01/facebook-detectron/
+    http://reinaldoferraz.com.br/acessibilidade-seo-e-svg/
+
+-->
+
+<!-- 
+    - demais informações
+
+    Evitar submenus.
+
+
+Apesar de muitas vezes serem necessários, usuários que dependem do teclado podem se beneficiar com um arquitetura de informação bem pensada.
+
+Alternativa correta
+Link para pular navegação.
+
+
+O link pode ser escondido, visível apenas para o leitor de tela. Ou podemos fazer como o Facebook que desenvolveu um “Pular para…” muito bem estruturado
+
+Alternativa correta
+Trocar o laranja por outra cor.
+
+
+Tudo depende da contraste entre a cor de fundo e a cor do texto. E por motivos de branding pode ser complicado convencer o time de design a mudar isso. Porém esse tom de laranja com fonte branca falha em todos os quesitos da WCAG, como podemos ver nessa imagem que mostra o problema de contraste.
+
+-->
+
+<!-- 
+    Atualmente é aceitável, semanticamente, uma página de um site possuir diversos <h1> 
+        distribuídos em seções independentes.
+
+    Contudo, isso pode prejudicar a acessibilidade do seu site pois:
+    Apesar do NVDA não se perder e ditar o nível do heading em foco, 
+    outros leitores de tela (principalmente versões antigas) podem ler apenas o 
+    primeiro <h1> ou simplesmente se perderem, e por consequência prejudicar a 
+        experiência do usuário no site. Principalmente usando o atalho para ler 
+        o que seria o ponto mais importante do site (comumente H + 1). 
+-->
+
+<h1 lang="en">
+    <!-- Leitor ira ler em ingles -->
+    The books on the table
+</h1>
+
+<!--  
+    Tipo de texto para alt
+    Imagem de um Painel do post sobre criação de logotipo --errado
+    Painel do post sobre criação de logotipo --correto
+    O leitor já dira que a imagem é uma imagem, para evitar redundancia retirar o 'Imagem de um' do alt
+-->
+<img src="../../../assets/css-layout/comecando-criar-logotipo.png" alt="Painel do post sobre criação de logotipo"
+    class="destaques__painel-imagem">
+
+<!--  
+    Tipo de texto para alt
+    Exemplo abaixo de como não fazer o texto para o alt
+    Correto - Instagram ou Logo Instagram
+-->
+
+<li>
+    <a href="" class="rodape__midia">
+        <img src="../../../assets/css-layout/instagram.png" alt="Icone do Instagram">
+    </a>
+</li>
+
+
+<!-- 
+    Exemplo de como n usar imagens e H1
+    
+    Uso de vários <h1> na mesma página.
+    Pensando em acessibilidade, recomenda-se o uso de um único <h1> por página.
+
+    Imagens ilustrativas sendo marcadas como conteúdo.
+    Importante sempre separar as responsabilidades entre o que é visual e o que é conteúdo.
+    Iconografia normalmente tem caráter visual, e o que for visual temos que fazer no CSS.
+    Seja usando um background-image ou um ::after/::before
+
+    ul > li o css list-style influencia na leitura da tela
+
+ -->
+<ul class="vantagens-lista">
+
+    <li class="vantagens-lista-item">
+        <img src="/imagens/icone-spaced.png">
+        <h1 class="vantagens-item-titulo">
+            Spaced Repetitions
+        </h1>
+        <p class="vantagens-item-texto">
+            A metodologia se adapta ao seu conhecimento.
+            Você evolui naturalmente nos exercícios, até fixar todo o conteúdo.
+        </p>
+    </li>
+
+    <li class="vantagens-lista-item">
+        <img src="/imagens/icone-flashcards.png">
+        <h1 class="vantagens-item-titulo">
+            FlashCards
+        </h1>
+        <p class="vantagens-item-texto">
+            Exercícios objetivos e focados em uma habilidade específica, para praticar tudo que aprendeu em cada lição.
+        </p>
+    </li>
+
+    <li class="vantagens-lista-item">
+        <img src="/imagens/icone-speak.png">
+        <h1 class="vantagens-item-titulo">
+            Fale Bastante
+        </h1>
+        <p class="vantagens-item-texto">
+            Você é encorajado a repetir e criar frases inteiras, evitando ter de pensar na tradução palavra a palavra.
+        </p>
+    </li>
+
+</ul>
+
+<!-- 
+
+    Deixar o atributo alt sem valo
+    Se for interessante que a imagem seja indexada por buscadores, a imagem deve ser deixada no HTML. Porém, o alt ainda precisa ser declarado, mesmo que sem valor, para que o leitor de tela ignore a imagem.
+
+    Refletir se a imagem realmente conta como um conteúdo ou se é meramente visual.
+    Se for visual, aplicar essa imagem via CSS será uma opção mais interessante.
+  -->
+
+
+
+<!-- 
+    Inputs com label for -> utilizar para identificar 'criar o vinculo'
+
+    se for necessario 'sumir' porem ainda ser reconhecido pelo leitor da tela
+    display: none -> esconde visualmente como na leitura da tela
+    display: hidden -> esconde visualmente como na leitura da tela
+    position: absolute; com left: -9999px opacity: 0 para esconder.
+  -->
+
+<label for="teste"></label>
+<input id="teste" type="text">
+
+<!-- 
+    estabelecer um papel para o elemento, no caso, a role. Configuraremos para que esta seja main.
+    O atributo role serve para atribuir papeis aos elementos no nosso código, por exemplo, se queremos que uma <div> seja interpretada como um botão pelo leitor de tela, escreveremos role="button".
+    https://www.w3.org/TR/using-aria/#intro
+-->
+<main class="conteudo" role="main"></main>
+
+
+<!-- 
+Apenas com HTML 5 não é possível alcançar nosso objetivo, por isso, 
+foi lançando um pacote de expansão para o HTML conhecido como "WAI-ARIA".
+ Utilizando alguns atributos conseguimos modificar o comportamento do leitor de tela 
+ e como o browser interpreta alguns elementos do código.
+
+Queremos modificar o comportamento do <a>, alegando que ele 
+    é rotulado pelo <figcaption>. Para isso, iremos inserir o atributo aria-labelledby,
+         significa basicamente "rotulado por". Passamos o id adequado para que o 
+         relacionamento entre os itens ocorra corretamente
+-->
+
+<a href="http://blog.apeperia.com.br/design/conheca-primeiras-etapas-criacao-logotipo-teste-teste"
+    class="secaoDestaques-link" aria-labelledby="tituloDestaque1">
+    <figure class="secaoDestaques-destaque">
+        <img src="img/comecando-criar-logotipo.png" class="secaoDestaques-destaque-img">
+        <figcaption class="secaoDestaques-destaque-titulo" id="tituloDestaque1">
+            Conheça as primeiras etapas na criação de um logotipo
+        </figcaption>
+
+    </figure>
+</a>
+
+<!-- 
+não podemos utilizar o placeholder como rótulo dos campos de um formulário. embora ele tenha ainda utilidade.Para relacionarmos as <label>s com os <input>s utilizaremos o atributo for, e forneceremos o id correspondente.
+
+Faremos esse procedimento em todos os campos seguindo o modelo do campo nome    
+-->
+
+<div class="contatoCampo contatoCampo--sucesso">
+    <label for="nome">Nome: </label>
+    <input type="text" id="nome" class="contatoCampo--validouFoi" placeholrder="Digite seu nome" required>
+</div>
+
+<!-- 
+    O html possui o atributo disabled que mantém os campos desabilitados.
+
+    Esse atributo barra a interferência do usuário nos campos e queremos manter essa propriedade. No entanto, seria interessante que os campos pudessem ser lidos, ainda que não seja possível executar modificações.
+
+    Para habilitarmos apenas a leitura dos campos, utilizaremos o atributo readonly oao invés de disabled
+
+-->
+
+<div class="contatoCampo">
+    <label>Endereço: </label>
+    <input type="text" class="contatoCampo-campoDesabilitado" disabled value="Rua Vergueiro">
+</div>
+para =>
+<div class="contatoCampo">
+    <label>Endereço: </label>
+    <input type="text" class="contatoCampo-campoDesabilitado" readonly value="Rua Vergueiro">
+</div>
+
+<!-- 
+Para inserirmos um arquivo de legenda, adicionamos ao nosso código o elemento track, 
+e nele precisamos inserir o endereço do arquivo de legenda.
+
+ transcrição ou legenda, por exemplo. Para isso, utilizamos o kind e inseriremos subtitles. Precisamos,ainda, 
+ inserir o atributo srclang para especificar o idioma da legenda, em nosso caso é pt-br
+ Com isso, temos o idioma da legenda especificado o player.
+-->
+
+<video src="img/formacao-java.mp4" class="secaoInstitucional-video"controls>
+    <track src="img/legenda-portugues-brasil.vtt" kind="subtitles" 
+    srclang="pt-br" label="Português(Brasil)">
+</video>
+Exemplo codigo vtt
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.000 a:start
+O Java é uma das linguagens que está em todos os lugares
+
+2
+00:00:03.00 --> 00:00:08.000
+Se você procura no mercado de trabalho uma vaga para ingressar na carreira de tecnologia...

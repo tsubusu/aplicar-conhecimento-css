@@ -1,0 +1,37 @@
+$cor-principal: blueviolet;
+$cor-secundaria: aquamarine;
+
+@mixin cor-e-texto($cor-do-fundo, $cor-do-texto) { //@mixin indica a criação de uma função
+    width: 50%;
+    background-color: $cor-do-fundo;
+    .texto {
+        margin-top: 40%;
+        text-align: center;
+        font-size: 150px;
+        color: $cor-do-texto;
+    }
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    .esquerdo {
+        @include cor-e-texto($cor-principal, $cor-secundaria);// chama o metodo passando os parametros
+    }
+
+    .direito {
+        @include cor-e-texto($cor-secundaria, $cor-principal);
+    }
+
+    // .direito {
+    //     width: 50%;
+    //     background-color: $cor-secundaria;
+    //     .texto {
+    //         margin-top: 40%;
+    //         text-align: center;
+    //         font-size: 150px;
+    //         color: $cor-principal;
+    //     }
+    // }
+}
+

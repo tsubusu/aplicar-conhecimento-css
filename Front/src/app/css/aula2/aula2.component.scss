@@ -1,0 +1,414 @@
+.body {
+    background: #f9f9f9;
+}
+
+/*
+    Atomic design
+    que consiste, basicamente, em um modelo de organizar os componentes, 
+    pastas e a estrutura do nosso CSS a partir do princípio de átomos, 
+    onde um átomo é toda tag HTML.
+
+    átomos, formam uma "molécula"
+    várias moléculas, por sua vez, forma os "organismos"
+    vários organismos, chegamos aos "templates"
+    template dá lugar a uma página
+
+    A diferença básica entre um template e uma página é que os templates são feitos 
+    com informações não reais, como um Lorem Ipsum (texto padrão em latim utilizado 
+    para testar fontes e diagramação), imagens vazias no lugar dos logos e banners,
+    e assim por diante. Nas páginas, utilizamos imagens e informações reais do nosso 
+    protótipo.
+
+
+    ordernar as propriedades css em ordem alfabetica
+*/
+
+.cabecalho {
+    align-items: center;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.menu__lista {
+    display: flex;
+}
+
+.menu__item {
+    list-style: none;
+}
+
+.menu__item:last-child .menu__link{
+    margin-right: 0;
+}
+
+.menu__link {
+    color: #808080;
+    margin-right: 1.25rem;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+/*
+    header nav ul li a, mas com a adição de um identificador - ou id - que chamaremos de "ativo". Esse identificador é passado com o auxílio da hashtag (#).
+    Quando esse id estiver presente, definiremos que a cor será alterada com a propriedade color: #333333 e o peso da fonte para negrito com font-weight: bold.
+    .menu-link#ativo {
+        color: #333333;
+        font-weight: bold;
+    }
+*/
+
+.menu__link.ativo {
+    color: #333333;
+    font-weight: bold;
+}
+
+.menu__link:hover {
+    text-decoration: underline;
+}
+
+
+/*
+Retornando ao código, perceberemos que nosso banner possui três elementos - as classes banner, banner__imagem e banner_titulo. Como vimos anteriormente, isso significa que teremos três novos arquivos, 
+e portanto precisaremos de uma nova pasta que chamaremos de "css/banner". 
+Dentro dela criaremos os arquivos banner.css, banner-imagem.css e banner-titulo.css
+*/
+
+
+/*
+    color: #fdfdfd para definirmos uma cor branca, mas não tão branca;
+    font-size: 5.0625rem para definirmos o tamanho da fonte;
+    position: absolute, de modo que a posição do texto seja absoluta na tela;
+    left: 50% para termos o alinhamento à esquerda da tela, centralizando o texto;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.75) para definirmos a sombra com uma cor preta mais clara;
+    top: 50% para definirmos o alinhamento ao topo;
+    text-align: center para que o elemento do texto sempre esteja centralizado;
+    transform: translate(-50%, -50%) para transladarmos o título, onde o primeiro valor é referente ao eixo X e o segundo ao eixo Y;
+    width: 100% de modo que o elemento ocupe 100% da tela;
+*/
+.banner__titulo {
+    font-family: Pacifico, cursive;
+    color: #fdfdfd;
+    font-size: 5.0625rem;
+    position: absolute;
+    left: 50%;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.75);
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+/*
+position: absolute do banner-titulo estava sendo absoluto em relação a página. 
+Sendo assim, usamos o parâmetro position: relative na classe pai, banner, 
+para que seus filhos sejam posicionados de maneira relativa a ele. 
+*/
+.banner {
+    position: relative;
+}
+
+/*
+calc() do CSS (que permite fazer cálculos) e subtraindo 72px do valor 100vh.
+background-image: url('../../img/banner.jpg') para fazermos a importação da imagem correta, seguindo o mesmo padrão das imagens da seção "Quem somos";
+background-position: center para centralizarmos a imagem na caixa;
+background-repeat: no-repeat para que a imagem não se repita dentro da caixa;
+background-size: cover para que a imagem ocupe todo o espaço disponível;
+*/
+.banner__imagem{
+    //background-image: url('../../../assets/css-aula2/banner.jpg');
+    //background-position: center;
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    //height: calc(100vh - 72px);
+    //width: 100%;
+
+    background: url('../../../assets/css-aula2/banner.jpg') no-repeat center / cover;
+    height: calc(100vh - 72px);
+    width: 100%;   
+}
+
+
+
+.sobre {
+    text-align: center;
+    padding: 2.5rem;
+}
+
+.sobre__titulo {
+    color: #8d0606;
+    font-family: Pacifico, cursive;
+    font-size: 3.1875rem;
+}
+
+.sobre__descricao {
+    color: #595959;
+    font-size: 1.75rem;
+    font-weight: 100;
+}
+
+
+
+/*
+background: #e5e5e5 para definirmos a cor do fundo;
+display: flex para que os elementos fiquem alinhados um ao lado do outro;
+flex-wrap: wrap para quebrarmos automaticamente os elementos em linhas conforme a tela é diminuida;
+e padding: 5rem 0 0 5rem para definirmos o espaçamento interno.
+*/
+
+.receitas {
+    background: #e5e5e5;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem 0 0 5rem;
+}
+
+/*
+background: #fdfdfd para termos um fundo quase branco;
+display: flex para que esse elemento se comporte como uma flex box;
+flex-direction: column para que os elementos se alinhem em colunas;
+margin-bottom: 5rem para termos um espaçamento inferior de 5rem;
+margin-right: 5rem para termos um espaçamento de 5rem à direita;
+e width: 25%.
+*/
+
+.receita {
+    background: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+    margin-right: 5rem;
+    width: calc(25% - 5rem);
+}
+
+.receita-imagem {
+    height: 200px;
+}
+
+.receita__titulo {
+    font-size: 1.4375rem;
+}
+
+/*
+font-size: 1.1875rem;
+line-height: 1.5, definindo a altura da fonte;
+e text-align: justify.
+*/
+.receita__descricao {
+    font-size: 1.1875rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.receita__conteudo {
+    padding: 1rem;
+}
+
+/*
+background: #8d0606 para definirmos a cor de fundo;
+border: none para removermos as bordas do botão;
+border-radius: 5px para que os cantos do botão sejam arredondados;
+color: #fdfdfd para alterarmos a cor do texto;
+e padding: 1rem definindo o espaçamento interno
+*/
+
+.receita__botao {
+    background: #8d0606;
+    border: none;
+    border-radius: 5px;
+    color: #fdfdfd;
+    padding: 1rem;
+    transition: all .1s ease-in-out; //indicando uma animação de transição que deverá ocorrer devagar
+}
+
+.receita__botao:hover {
+    background: #620404;
+    cursor: pointer;
+}
+
+
+
+.pessoas {
+    display: flex;
+    padding-top: 3rem;
+    justify-content: space-around; // elementos sejam justificados de acordo com o espaço na página
+}
+
+.pessoa__imagem {
+    background: red;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+}
+.pessoa__imagem--roberta {
+    background-image: url('../../../assets/css-aula2/roberta.jpg');
+
+}
+
+.pessoa__imagem--marcela {
+    background-image: url('../../../assets/css-aula2/marcela.jpg');
+
+}
+
+.pessoa__imagem--andreia {
+    background-image: url('../../../assets/css-aula2/andreia.jpg');
+}
+
+.pessoa__nome {
+    color: #8d0606;
+    font-family: Pacifico, cursive;
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.pessoa__funcao {
+    color: #595959;
+    font-size: 1.25rem;
+    text-transform: lowercase;
+}
+
+
+.quem-somos__titulo {
+    color: #8d0606;
+    font-size: 3.1875rem;
+    font-family: Pacifico, cursive;
+    margin-bottom: 1rem;
+}
+
+.quem-somos__descricao {
+    color: #595959;
+    font-size: 1.75rem;
+    font-weight: 100;
+  }
+
+  .quem-somos__titulo {
+    color: #8d0606;
+    font-family: Pacifico, cursive;
+    font-size: 3.1875rem;
+    margin-bottom: 1rem;
+  }
+
+  .quem-somos {
+    padding: 5rem;
+    text-align: center;
+  }
+
+  .rodape {
+    background: #bfbfbf;
+    color: #fdfdfd;
+    text-align: right;
+    padding: 1.5625rem 5rem;
+    text-transform: lowercase;
+  }
+
+@media screen and (min-width: 0) { //Aqui estamos declarando um @media que aponta para uma tela (screen and) cujo largura mínima é 0
+    .cabecalho {
+        justify-content: center;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .banner__titulo {
+        font-size: 3rem;
+    }
+
+    .banner__imagem {
+        height: calc(100vh - 51px);
+    }
+
+    .sobre {
+        padding: 2.5rem 1rem;
+    }
+
+    .sobre__titulo {
+        font-size: 2rem;
+    }
+
+    .sobre__descricao {
+        font-size: 1.3rem;
+    }
+
+    .receita {
+        margin-right: 1rem;
+        width: 100%;
+    }
+
+    .receitas {
+        padding: 5rem 0 0 1rem;
+    }
+
+    .pessoas {
+        flex-direction: column;
+    }
+
+    .pessoa {
+        margin-bottom: 2rem;
+    }
+  }
+
+@media screen and (min-width: 768px) {
+    .cabecalho {
+        justify-content: space-between;
+        padding: 0 5rem;
+    }
+
+    .logo {
+        display: block;
+    }
+
+    .banner__titulo {
+        font-size: 5.0625rem;
+    }
+
+    .banner__imagem {
+        height: calc(100vh - 72px);
+    }
+
+    .sobre {
+        padding: 2.5rem;
+    }
+
+    .sobre__titulo {
+        font-size: 3.1875rem;
+    }
+
+    .sobre__descricao {
+        font-size: 1.75rem;
+    }
+
+    .receita {
+        margin-right: 2.5rem;
+        width: calc(33% - 2.5rem)
+    }
+
+    .receitas {
+        padding: 5rem 0 0 2.5rem;
+    }
+
+    .pessoas {
+        flex-direction: row;
+    }
+
+    .pessoa {
+        margin-bottom: 0;
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .receita {
+        margin-right: 5rem;
+        width: calc(25% - 5rem);
+    }
+
+    .receitas {
+        padding: 5rem 0 0 5rem;
+    }
+}

@@ -1,0 +1,15 @@
+<!-->
+a tag <picture>, a tag <source>, o atributo srcset="" e o atributo media="". 
+    A tag <picture> funciona como um wrapper ou um container. Dentro colocamos a (<img>) que vai ser a imagem base 
+        (considerando que estamos desenvolvendo mobile first a imagem base será a banner-mobile.jpg)
+    tag <source> passando duas informações: a localização da segunda imagem com o atributo srcset e a condição que fará essa imagem aparecer com o atributo media
+-->
+<picture>
+    <source srcset="assets/img/banner-desktop.jpg" media="(min-width: 1024px)" >
+    <img src="assets/img/banner-mobile.jpg" alt="Capa do Instalura">
+</picture>
+<!-- utilizando o srcset da tag <img> temos acesso a mais uma opção. Utilizar o atributo sizes junto com a unidade de medida w -->
+<picture>
+    <img src="imagem-alta-qualidade.png" srcset="imagem-baixa-qualidade.png 340w, imagem-media-qualidade.png 1080w, imagem-alta-qualidade.png 2400w" 
+    sizes="(max-width: 320px) 340px, (max-width: 1024px) 1080px, 2400px, " alt="Descrição da imagem">
+</picture>

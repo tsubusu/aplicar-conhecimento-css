@@ -1,0 +1,27 @@
+
+<body>
+  <div class="dash-board">
+
+    <div class="dash-board-item">
+      <app-input-container errorMessage="Campo obrigatorio e com 5 caracteres" label="Endereço">
+        <input class="form-control" name="address" ngModel required minlength="5" autocomplete="off" />
+      </app-input-container>
+    </div>
+
+    <div class="dash-board-item">
+      <div class="weather" *ngIf="weather">
+        <span *ngFor="let x of weather">
+          {{x.date}}
+          {{x.temperatureC}}
+          {{x.summary}}
+        </span>
+      </div>
+    </div>
+
+    <div class="dash-board-item"></div>
+
+  </div>
+
+
+</body>
+  
